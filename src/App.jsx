@@ -50,13 +50,13 @@ function App() {
   return (
     <section className="relative">
       <Layout>
-        {isHomePage && (
+        {/* {isHomePage && (
           <Snowfall
             color="#ffbb00"
             className="snowfall -z-10"
             snowflakeCount={75}
           />
-        )}
+        )} */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />

@@ -1,14 +1,7 @@
 import Header from "./Header";
 import { useState, useEffect } from "react";
-
-const Loader = () => (
-  <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#181818] dark:bg-[#f5f5f5] transition-colors duration-300">
-    <div className="w-16 h-16 border-4 border-[#e99b63] border-t-transparent rounded-full animate-spin mb-4"></div>
-    <span className="text-lg font-semibold text-[#e99b63] dark:text-[#e99b63]">
-      Loading...
-    </span>
-  </div>
-);
+import Loader from "./Loader";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Layout = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -24,7 +17,9 @@ const Layout = ({ children }) => {
     let loaded = 0;
     const onLoad = () => {
       loaded += 1;
-      if (loaded === images.length) setLoading(false);
+      if (loaded === images.length) {
+        setTimeout(() => setLoading(false), 500);
+      }
     };
 
     images.forEach((img) => {
@@ -47,17 +42,17 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      {loading && <Loader />}
+      <AnimatePresence mode="wait">
+        {loading && <Loader key="loader" />}
+      </AnimatePresence>
       <Header />
-      <main
-        className={
-          loading
-            ? "opacity-0 pointer-events-none"
-            : "opacity-100 transition-opacity duration-500"
-        }
+      <motion.main
+        initial={{ opacity: 0, y: 20 }}
+        animate={loading ? {} : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
       >
         {children}
-      </main>
+      </motion.main>
     </>
   );
 };

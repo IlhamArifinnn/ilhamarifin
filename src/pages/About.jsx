@@ -6,28 +6,94 @@ import {
   UserRound,
 } from "lucide-react";
 import { skills } from "../utils/data/skills";
+import { motion } from "framer-motion";
 
 const About = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 100 },
+    },
+    hover: {
+      scale: 1.03,
+      y: -5,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const skillItemVariants = {
+    hidden: { opacity: 0, scale: 0.3 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { type: "spring", stiffness: 200 },
+    },
+    hover: {
+      scale: 1.1,
+      rotate: [0, 0, 0, 0],
+      transition: { duration: 0.2 },
+    },
+  };
+
   return (
-    <section
+    <motion.section
       className="min-h-screen px-4 py-14 md:py-20 
         bg-gradient-to-br dark:from-[#f5f5f5] dark:via-[#fff] dark:to-[#e99b63] 
         from-[#181818] via-[#232323] to-[#e99b63]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#e99b63]">
-          About Me
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#e99b63]">
+            About Me
+          </h2>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <motion.div
+          className="grid md:grid-cols-2 gap-12"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {/* Left Column */}
           <div className="space-y-8">
             {/* Intro */}
-            <div className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg">
+            <motion.div
+              className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg hover-lift"
+              variants={cardVariants}
+              whileHover="hover"
+            >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center">
+                <motion.div
+                  className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center"
+                  animate={{ rotate: [0, 360] }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                >
                   <UserRound className="text-white" />
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-semibold dark:text-[#232323] text-white">
                   Introduction
                 </h3>
@@ -51,14 +117,21 @@ const About = () => {
                 pengelolaan database. Beberapa project saya digunakan langsung
                 oleh organisasi dan institusi, bukan sekadar project latihan.
               </p>
-            </div>
+            </motion.div>
 
             {/* Background */}
-            <div className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg">
+            <motion.div
+              className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg hover-lift"
+              variants={cardVariants}
+              whileHover="hover"
+            >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center">
+                <motion.div
+                  className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center"
+                  whileHover={{ scale: 1.1 }}
+                >
                   <BookMarked className="text-white" />
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-semibold dark:text-[#232323] text-white">
                   Background
                 </h3>
@@ -74,59 +147,83 @@ const About = () => {
                 termasuk sistem informasi, CMS, dan landing page berbasis
                 kebutuhan nyata pengguna.
               </p>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Column */}
           <div className="space-y-8">
             {/* Education */}
-            <div className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg">
+            <motion.div
+              className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg hover-lift"
+              variants={cardVariants}
+              whileHover="hover"
+            >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center">
+                <motion.div
+                  className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <GraduationCap className="text-white" />
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-semibold dark:text-[#232323] text-white">
                   Education
                 </h3>
               </div>
 
               <div className="space-y-6">
-                <div className="border-l-2 border-[#e99b63] pl-4">
-                  <div className="flex justify-between items-center mb-1">
-                    <h4 className="font-semibold text-lg dark:text-[#232323] text-white">
-                      S1 Teknik Informatika
-                    </h4>
-                    <span className="text-sm text-[#e99b63] font-medium">
-                      2023 – Sekarang
-                    </span>
-                  </div>
-                  <p className="text-gray-400 dark:text-gray-600">
-                    STT Terpadu Nurul Fikri
-                  </p>
-                </div>
-
-                <div className="border-l-2 border-[#e99b63] pl-4">
-                  <div className="flex justify-between items-center mb-1">
-                    <h4 className="font-semibold text-lg dark:text-[#232323] text-white">
-                      Teknik Komputer & Jaringan
-                    </h4>
-                    <span className="text-sm text-[#e99b63] font-medium">
-                      2020 – 2023
-                    </span>
-                  </div>
-                  <p className="text-gray-400 dark:text-gray-600">
-                    SMKN 1 Padangsidimpuan
-                  </p>
-                </div>
+                {[
+                  {
+                    title: "S1 Teknik Informatika",
+                    period: "2023 – Sekarang",
+                    institution: "STT Terpadu Nurul Fikri",
+                  },
+                  {
+                    title: "Teknik Komputer & Jaringan",
+                    period: "2020 – 2023",
+                    institution: "SMKN 1 Padangsidimpuan",
+                  },
+                ].map((edu, index) => (
+                  <motion.div
+                    key={index}
+                    className="border-l-2 border-[#e99b63] pl-4"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                  >
+                    <div className="flex justify-between items-center mb-1">
+                      <h4 className="font-semibold text-lg dark:text-[#232323] text-white">
+                        {edu.title}
+                      </h4>
+                      <motion.span
+                        className="text-sm text-[#e99b63] font-medium"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        {edu.period}
+                      </motion.span>
+                    </div>
+                    <p className="text-gray-400 dark:text-gray-600">
+                      {edu.institution}
+                    </p>
+                  </motion.div>
+                ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Hard Skills */}
-            <div className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg">
+            <motion.div
+              className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg hover-lift"
+              variants={cardVariants}
+              whileHover="hover"
+            >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center">
+                <motion.div
+                  className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center"
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
                   <Code className="text-white" />
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-semibold dark:text-[#232323] text-white">
                   Hard Skills
                 </h3>
@@ -134,27 +231,39 @@ const About = () => {
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {skills.map((skill, index) => (
-                  <span
+                  <motion.span
                     key={index}
                     className="flex items-center justify-center gap-3 bg-[#333] dark:bg-gray-200 text-gray-300 dark:text-gray-700 text-sm px-0 py-2 rounded-lg text-center hover:bg-[#e99b63] hover:text-white dark:hover:bg-[#e99b63] dark:hover:text-white transition-all duration-300"
+                    variants={skillItemVariants}
+                    whileHover="hover"
+                    initial="hidden"
+                    animate="visible"
+                    transition={{ delay: index * 0.05 }}
                   >
-                    <img
+                    <motion.img
                       src={skill.icon}
                       alt={skill.name}
                       className="w-6 h-6"
                     />
                     {skill.name}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Soft Skills */}
-            <div className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg">
+            <motion.div
+              className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg hover-lift"
+              variants={cardVariants}
+              whileHover="hover"
+            >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center">
+                <motion.div
+                  className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center"
+                  whileHover={{ scale: 1.2 }}
+                >
                   <FolderCode className="text-white" />
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-semibold dark:text-[#232323] text-white">
                   Soft Skills
                 </h3>
@@ -166,20 +275,27 @@ const About = () => {
                   "Manajemen Waktu",
                   "Adaptif dan Inisiatif",
                 ].map((skill, index) => (
-                  <li
+                  <motion.li
                     key={index}
                     className="flex items-center gap-2 text-gray-300 dark:text-gray-600"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ x: 5 }}
                   >
-                    <i className="bx bx-check text-[#e99b63]"></i>
+                    <motion.i
+                      className="bx bx-check text-[#e99b63]"
+                      whileHover={{ scale: 1.3 }}
+                    ></motion.i>
                     {skill}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
