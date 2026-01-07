@@ -1,6 +1,6 @@
 import "boxicons/css/boxicons.min.css";
 import Spline from "@splinetool/react-spline";
-import { Github, Linkedin } from "lucide-react";
+import { Gem, Github, Linkedin } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -9,7 +9,7 @@ const Hero = () => {
         {/* tag box-with gradient border */}
         <div className="relative w-[95%] sm:w-48 h-10 bg-gradient-to-r from-[#656565] to-[#e99b63] shadow-[0_0_15px_rgba(255,255,255,0.4)] rounded-full">
           <div className="absolute inset-[3px] bg-black dark:bg-white rounded-full flex items-center justify-center gap-1 text-sm font-medium tracking-wide">
-            <i className="bx bx-diamond"></i>
+            <Gem className="text-gray-200 dark:text-slate-700" />
             PORTFOLIO
           </div>
         </div>
@@ -22,7 +22,7 @@ const Hero = () => {
         </h1>
 
         {/* description */}
-        <p className="text-base sm:text-lg md:text-base tracking-wider text-slate-600 max-w-[25rem] lg:max-w-[30rem]">
+        <p className="text-base sm:text-lg md:text-base tracking-wider text-gray-400 dark:text-slate-700 max-w-[25rem] lg:max-w-[30rem]">
           Welcome to my portfolio! I'm passionate about crafting efficient and
           scalable web applications. Explore my projects and experience as a
           developer.

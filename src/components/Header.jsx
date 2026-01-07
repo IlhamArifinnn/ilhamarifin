@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import "boxicons/css/boxicons.min.css";
 import { useLocation } from "react-router";
+import { Moon, Sun } from "lucide-react";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -74,7 +74,11 @@ const Header = () => {
           className="text-xl md:mr-4 mr-2 transition-colors hover:text-[#e99b63] z-50"
           aria-label="Toggle theme"
         >
-          <i className={`bx ${theme === "dark" ? "bx-moon" : "bx-sun"}`}></i>
+          {theme === "dark" ? (
+            <Moon className="w-5 h-5" />
+          ) : (
+            <Sun className="w-5 h-5" />
+          )}
         </button>
       </nav>
 

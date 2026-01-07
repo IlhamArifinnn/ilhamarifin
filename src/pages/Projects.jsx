@@ -1,3 +1,4 @@
+import { Github, Link } from "lucide-react";
 import projectsData from "../utils/data/projects";
 
 const Projects = () => {
@@ -65,7 +66,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-[#e99b63] hover:text-[#d88a57] transition-colors"
                   >
-                    <i className="bx bxl-github"></i>
+                    <Github className="w-4 h-4" />
                     Code
                   </a>
                 )}
@@ -76,7 +77,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-[#e99b63] hover:text-[#d88a57] transition-colors"
                   >
-                    <i className="bx bx-link-external"></i>
+                    <Link className="w-4 h-4" />
                     Live Demo
                   </a>
                 )}

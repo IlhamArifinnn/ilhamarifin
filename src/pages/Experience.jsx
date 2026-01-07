@@ -1,3 +1,4 @@
+import { BriefcaseBusiness, Users } from "lucide-react";
 import { workExperiences, orgExperiences } from "../utils/data/experiences";
 
 const Experience = () => {
@@ -19,7 +20,7 @@ const Experience = () => {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center">
-                <i className="bx bx-briefcase text-white text-xl"></i>
+                <BriefcaseBusiness className="text-white" />
               </div>
               <h3 className="text-xl font-semibold dark:text-[#232323] text-white">
                 Work Experience
@@ -51,7 +52,7 @@ const Experience = () => {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center">
-                <i className="bx bx-group text-white text-xl"></i>
+                <Users className="text-white" />
               </div>
               <h3 className="text-xl font-semibold dark:text-[#232323] text-white">
                 Organizational Experience

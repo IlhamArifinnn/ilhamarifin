@@ -1,3 +1,4 @@
+import { Github, Instagram, Link, Linkedin, Mail } from "lucide-react";
 import { useState } from "react";
 
 const Contact = () => {
@@ -40,7 +41,8 @@ const Contact = () => {
             Contact Me
           </h2>
           <p className="text-lg text-gray-300 dark:text-gray-600 max-w-2xl mx-auto">
-            Feel free to reach out for collaboration or opportunities.
+            I'm always open to discussing new projects, creative ideas, or
+            opportunities. Feel free to reach out!{" "}
           </p>
         </div>
 
@@ -132,7 +134,25 @@ const Contact = () => {
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-[#e99b63] flex items-center justify-center">
-                    <i className="bx bx-envelope text-white text-xl"></i>
+                    <Instagram className="text-white " />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold dark:text-[#232323] text-white">
+                      Instagram
+                    </h4>
+                    <a
+                      href="https://www.instagram.com/ipinnn_08"
+                      target="_blank"
+                      className="text-gray-400 dark:text-gray-600 hover:text-[#e99b63] transition-colors"
+                    >
+                      instagram.com/ipinnn_08
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-[#e99b63] flex items-center justify-center">
+                    <Mail className="text-white " />
                   </div>
                   <div>
                     <h4 className="font-semibold dark:text-[#232323] text-white">
@@ -149,7 +169,7 @@ const Contact = () => {
 
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-[#e99b63] flex items-center justify-center">
-                    <i className="bx bxl-github text-white text-xl"></i>
+                    <Github className="text-white" />
                   </div>
                   <div>
                     <h4 className="font-semibold dark:text-[#232323] text-white">
@@ -168,7 +188,7 @@ const Contact = () => {
 
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-[#e99b63] flex items-center justify-center">
-                    <i className="bx bxl-linkedin text-white text-xl"></i>
+                    <Linkedin className="text-white" />
                   </div>
                   <div>
                     <h4 className="font-semibold dark:text-[#232323] text-white">
@@ -187,7 +207,7 @@ const Contact = () => {
 
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-[#e99b63] flex items-center justify-center">
-                    <i className="bx bx-download text-white text-xl"></i>
+                    <Link className="text-white" />
                   </div>
                   <div>
                     <h4 className="font-semibold dark:text-[#232323] text-white">

@@ -10,10 +10,10 @@
 
 @layer base {
   html {
-    @apply transition-colors duration-300;
+    @apply transition-colors duration-1000;
   }
 
   body {
-    @apply bg-black text-white dark:bg-gray-50 dark:text-slate-800 relative font-sans h-screen overflow-x-hidden;
+    @apply bg-black text-gray-200 dark:bg-gray-50 dark:text-slate-700 relative font-sans h-screen overflow-x-hidden;
   }
 }

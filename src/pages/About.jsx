@@ -1,3 +1,10 @@
+import {
+  BookMarked,
+  Code,
+  FolderCode,
+  GraduationCap,
+  UserRound,
+} from "lucide-react";
 import { skills } from "../utils/data/skills";
 
 const About = () => {
@@ -19,7 +26,7 @@ const About = () => {
             <div className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center">
-                  <i className="bx bx-user text-white text-xl"></i>
+                  <UserRound className="text-white" />
                 </div>
                 <h3 className="text-xl font-semibold dark:text-[#232323] text-white">
                   Introduction
@@ -50,7 +57,7 @@ const About = () => {
             <div className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center">
-                  <i className="bx bx-bulb text-white text-xl"></i>
+                  <BookMarked className="text-white" />
                 </div>
                 <h3 className="text-xl font-semibold dark:text-[#232323] text-white">
                   Background
@@ -76,7 +83,7 @@ const About = () => {
             <div className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center">
-                  <i className="bx bx-book-open text-white text-xl"></i>
+                  <GraduationCap className="text-white" />
                 </div>
                 <h3 className="text-xl font-semibold dark:text-[#232323] text-white">
                   Education
@@ -118,7 +125,7 @@ const About = () => {
             <div className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center">
-                  <i className="bx bx-code-alt text-white text-xl"></i>
+                  <Code className="text-white" />
                 </div>
                 <h3 className="text-xl font-semibold dark:text-[#232323] text-white">
                   Hard Skills
@@ -146,7 +153,7 @@ const About = () => {
             <div className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center">
-                  <i className="bx bx-group text-white text-xl"></i>
+                  <FolderCode className="text-white" />
                 </div>
                 <h3 className="text-xl font-semibold dark:text-[#232323] text-white">
                   Soft Skills
