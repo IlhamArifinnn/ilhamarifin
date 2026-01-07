@@ -94,7 +94,7 @@ const Header = () => {
       {/* Mobile menu */}
       {isMobile && (
         <div className="fixed top-16 bottom-0 right-0 left-0 p-5 md:hidden z-40 bg-black bg-opacity-90 backdrop-blur-md">
-          <nav className="flex flex-col gap-6 items-center">
+          <nav className="flex flex-col gap-6 items-center text-gray-200">
             {navItems.map((item, i) => (
               <a
                 key={i}
