@@ -85,7 +85,6 @@ const About = () => {
               <div className="flex items-center gap-3 mb-4">
                 <motion.div
                   className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center"
-                  animate={{ rotate: [0, 360] }}
                   transition={{
                     duration: 10,
                     repeat: Infinity,
@@ -161,8 +160,6 @@ const About = () => {
               <div className="flex items-center gap-3 mb-4">
                 <motion.div
                   className="w-10 h-10 rounded-full bg-[#e99b63] flex items-center justify-center"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.5 }}
                 >
                   <GraduationCap className="text-white" />
                 </motion.div>

@@ -28,7 +28,7 @@ const Projects = () => {
   };
 
   const projectVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.5 },
+    hidden: { opacity: 0, y: 50, scale: 0.4 },
     visible: {
       opacity: 1,
       y: 0,
@@ -40,7 +40,7 @@ const Projects = () => {
       },
     },
     hover: {
-      scale: 1.05,
+      scale: 1.04,
       y: -5,
       boxShadow: "0 10px 30px rgba(233, 155, 99, 0.3)",
       transition: {
@@ -51,7 +51,7 @@ const Projects = () => {
       },
     },
     tap: {
-      scale: 0.97,
+      scale: 0.98,
     },
   };
 
@@ -123,7 +123,7 @@ const Projects = () => {
           {currentProjects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg overflow-hidden relative group"
+              className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-5 shadow-lg overflow-hidden relative group"
               variants={projectVariants}
               whileHover="hover"
               whileTap="tap"
@@ -222,12 +222,8 @@ const Projects = () => {
                     whileHover={{ scale: 1.1, x: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <motion.div
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <Github className="w-4 h-4" />
-                    </motion.div>
+
+                    <Github className="w-4 h-4" />
                     Code
                   </motion.a>
                 )}
@@ -240,12 +236,7 @@ const Projects = () => {
                     whileHover={{ scale: 1.1, x: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <motion.div
-                      whileHover={{ rotate: [0, 30, -30, 0] }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <Link className="w-4 h-4" />
-                    </motion.div>
+                    <Link className="w-4 h-4" />
                     Live Demo
                   </motion.a>
                 )}
