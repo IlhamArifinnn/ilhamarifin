@@ -1,8 +1,21 @@
-import { Github, Link } from "lucide-react";
+import { useState } from "react";
+import { Github, Link, ChevronLeft, ChevronRight } from "lucide-react";
 import projectsData from "../utils/data/projects";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Projects = () => {
+  const PROJECTS_PER_PAGE = 6;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(projectsData.length / PROJECTS_PER_PAGE);
+  const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
+  const currentProjects = projectsData.slice(startIndex, startIndex + PROJECTS_PER_PAGE);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -107,7 +120,7 @@ const Projects = () => {
           initial="hidden"
           animate="visible"
         >
-          {projectsData.map((project, index) => (
+          {currentProjects.map((project, index) => (
             <motion.div
               key={index}
               className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] dark:from-white dark:to-gray-100 rounded-xl p-6 shadow-lg overflow-hidden relative group"
@@ -240,6 +253,60 @@ const Projects = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <motion.div
+            className="flex justify-center items-center gap-2 mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            {/* Previous Button */}
+            <motion.button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className={`p-2 rounded-lg transition-all ${currentPage === 1
+                ? "text-gray-500 cursor-not-allowed"
+                : "text-[#e99b63] hover:bg-[#e99b63]/20"
+                }`}
+              whileHover={currentPage !== 1 ? { scale: 1.1 } : {}}
+              whileTap={currentPage !== 1 ? { scale: 0.9 } : {}}
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </motion.button>
+
+            {/* Page Numbers */}
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <motion.button
+                key={page}
+                onClick={() => handlePageChange(page)}
+                className={`w-10 h-10 rounded-lg font-semibold transition-all ${currentPage === page
+                  ? "bg-gradient-to-r from-[#e99b63] to-[#ff6b6b] text-white shadow-lg"
+                  : "text-gray-300 dark:text-gray-600 hover:bg-[#e99b63]/20"
+                  }`}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                {page}
+              </motion.button>
+            ))}
+
+            {/* Next Button */}
+            <motion.button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className={`p-2 rounded-lg transition-all ${currentPage === totalPages
+                ? "text-gray-500 cursor-not-allowed"
+                : "text-[#e99b63] hover:bg-[#e99b63]/20"
+                }`}
+              whileHover={currentPage !== totalPages ? { scale: 1.1 } : {}}
+              whileTap={currentPage !== totalPages ? { scale: 0.9 } : {}}
+            >
+              <ChevronRight className="w-6 h-6" />
+            </motion.button>
+          </motion.div>
+        )}
       </div>
     </motion.section>
   );
