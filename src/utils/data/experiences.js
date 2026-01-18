@@ -5,12 +5,12 @@ export const workExperiences = [
     period: "Maret 2022 – April 2022",
   },
   {
-    role: "Magang - Fullstack Web Developer",
+    role: "Internship - Fullstack Web Developer",
     company: "Umaroh Indonesia(PT Nawaitul Umroh Haji)",
     period: "Agustus 2025 – Desember 2025",
   },
   {
-    role: "Magang - Landing Page Builder",
+    role: "Internship - Landing Page Builder",
     company: "PT Renjana Sinergi Indonesia",
     period: "Agustus 2025 – Desember 2025",
   },
